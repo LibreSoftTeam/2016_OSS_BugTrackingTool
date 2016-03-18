@@ -111,14 +111,14 @@ The tool integrates information from Launchpad as issue-tracking system and Gerr
 \label{sec:2.1}
 \begin{figure}
 \centering
-\includegraphics[height=7cm]{Arquitectura.png}
+\includegraphics[height=4cm]{Arquitectura.png}
 \caption{Architecture of the tool.}
 \label{fig:1}       % Give a unique label
 \end{figure}
 
 \subsection{Main Features}
 \label{sec:2.2}
-Figure \ref{fig:2} illustrates a screen short of the home page of the tool. In particular, the tool displays the ID of the tickets which are extracted randomly from each issue-tracking repository of OpenStack. Other related information is displayed. Based on all these data, the researcher can decide whether the issue is a bug report or not. We focused on displaying the main parameters that help in the classification of reports, such as title and description of the report, as well as the description of the fix commit. For example for ticket ID 1531734 the tool displays the information related with the ticket in Launchpad and its corresponding review in Gerrit.
+Figure \ref{fig:2} illustrates a screen short of the main tab of the tool. In particular, the tool displays the ID of the tickets which are extracted randomly from each issue-tracking repository of OpenStack. Other related information is displayed. Based on all these data, the researcher can decide whether the issue is a bug report or not. We focused on displaying the main parameters that help in the classification of reports, such as title and description of the report, as well as the description of the fix commit. For example for ticket ID 1531734 the tool displays the information related with the ticket in Launchpad and its corresponding review in Gerrit.
 
 There is other additional information that the tool does not displays. If the researchers find it necessary, they can access the Launchapd and Gerrit web pages, respectively of the ticket and review, through the links provided by the tool. Thereby they can access extra information such as the comments written by code review researchers that correspond to that particular ticket. This provides a mean for tracking the history of the ticket from the moment it was opened until it was closed.
 
@@ -129,7 +129,7 @@ Another feature of the tool is that it allows to carry out a blind analysis of t
 
 \begin{figure}
 \centering
-\includegraphics[height=19cm]{index2.png}
+\includegraphics[height=10cm]{index2.png}
 \caption{Screenshot of Analyze Tab}   
 \label{fig:2}       % Give a unique label
 \end{figure}
@@ -137,8 +137,8 @@ Another feature of the tool is that it allows to carry out a blind analysis of t
 The web page provides different functionalities depending on the tab the researcher is browsing. We explain these functionalities in the following:
 \begin{enumerate}
   \item Tab Repository: In this tab you can choose which repository you want to analyze. Currently the tool supports the four principal repositories of OpenStack: Cinder, Nova, Neutron and Horizon.
-  \item Tab Analyze: It is the Tab illustrated in Figure \ref{fig:2}. It is where all the data from a specific ticket are displayed. The user can either select a random identifier or insert one of his choice. According to the data retrieved from Launchpad and Gerrit, the researcher can classify the ticket into one of the three above mentioned categories.
-  \item Tab Statistics: This tab extracts the data already analyzed by a researcher involved in the analysis from their user account in GitHub. It analyzes these data and displays a distribution of the classifications in a table; \textit{Bug Report},\textit{Not Bug Report} and \textit{Undecided}. If the researcher checks the option of his/her name, the statistics will be displayed in a chart.
+  \item Tab Analyze: It is the Tab illustrated in Figure \ref{fig:2}. It is where all the data from a specific ticket are displayed. The user can either select a random identifier or insert one of his choice. According to the data retrieved from Launchpad and Gerrit, the researcher can classify the ticket.% into one of the three above mentioned categories.
+  \item Tab Statistics: This tab extracts the data already analyzed by a researcher involved in the analysis from their user account in GitHub. It analyzes these data and displays a distribution of the classifications in a table;% \textit{Bug Report},\textit{Not Bug Report} and \textit{Undecided}. If the researcher checks the option of his/her name, the statistics will be displayed in a chart.
   \item Tab Modify: In case the researcher thinks to have inserted a mistake during the analysis, in this tab he/she can edit any of the data saved in his/her GitHub repository. 
 \end{enumerate}
 
@@ -163,7 +163,7 @@ Researcher 3 \kern 1pc & (188) 56\% & (116) 35\% & (30) 9\% & 334 \\
 \end{center}
 \end{table}
 
-The percentages between Researcher 1 and Researcher 3 are really similar, whereas the Researcher 2 has identified more Bug Reports in his analysis. But, the three results support the misclassification present in bug tracking systems. Furthermore, according to ~\cite{Herzig}'s work, approximately two of five issues are misclassified in the analysis of Researcher 1 and Researcher 3.
+The percentages between R1 and R3 are really similar, whereas the R2 has identified more Bug Reports in his analysis. But, the three results support the misclassification present in bug tracking systems. Furthermore, according to ~\cite{Herzig}'s work, approximately two of five issues are misclassified in the analysis of R1 and R3.
 
 Focusing in the concordance between researchers analyzing the same ticket, 417 tickets present a double bind review process, obtaining that each ticket was analyzed by two researchers. Table~\ref{tab:2} shows the percentage of concordance between researchers in each repository after the analysis of the tickets. 
 
@@ -182,16 +182,16 @@ R2 and R3  \kern 1pc & (41/62) 66\%\kern 1pc & (10/10) 100\%\kern 1pc  & - \kern
 \end{center}
 \end{table}
 
-Table~\ref{tab:2} shows that the concordance of the researchers is high, but, also demonstrate the difficulty to classify tickets as bug report or as not bug report, because each researcher can have different opinions about a specific ticket. The concordance between the researchers could be higher if they were expert in the project.
+Table~\ref{tab:2} shows that the concordance of the researchers is high, but, also demonstrate the difficulty to classify tickets as bug report or as not bug report, because each researcher can have different opinions about a specific ticket. The concordance could be higher if they were expert in the project.
  
-All data from the analysis are available in the GitHub repositories of the researchers \footnote{\url{https://github.com/Gemarodri}}\footnote{\url{https://github.com/ddalipaj}}\footnote{\url{https://github.com/nellysek}}, the repositories having the same name of the projects analyzed in OpenStack.
+All data from the analysis are available in the GitHub repositories of the researchers \footnote{\url{https://github.com/{Gemarodri,ddalipaj,nellysek}}}, the repositories having the same name of the projects analyzed in OpenStack.
 
 \subsection{Future Work}
 \label{sec:5.1}
 
-Since we are conducting empirical studies based on OpenStack projects, the current tool is limited to OpenStack as a pilot project. In the future, our aim is to extend the tool at extracting tickets from others bug tracking systems, such as Bugzilla or GitHub where the server will operate against them. This way we could analyze the most OSS projects which work with Launchpad, Bugzilla and GitHub and use git repositories. Additionally, we aim to study the misclassification in the OSS projects that use these systems. We would like to add more features to the tool. One of them would be to display information such as the lines of code changed in the files affected from the fix-commit, along with the code in the bug seeding moment. Furthermore, we would like to implement an automatic classifier for the tickets, based on the semantic of the description of the ticket and the fix-commit. The result will indicate a percentage of confidence about whether a ticket is a bug report or not. However, the researcher will always make the final decision. The automatic classification will enable researchers to focus only on problematic issues, which can be easily misclassified. \\
+Since we are conducting empirical studies based on OpenStack projects, the current tool is limited to OpenStack as a pilot project. In the future, our aim is to extend the tool at extracting tickets from others bug tracking systems, such as Bugzilla or GitHub where the server will operate against them to analyze the most OSS project. Additionally, we aim to study the misclassification in this OSS projects. We would like to add more features to the tool. One of them would be to display information such as the lines of code changed in the files affected from the fix-commit, along with the code in the bug seeding moment. Furthermore, we would like to implement an automatic classifier for the tickets, based on the semantic of the description of the ticket and the fix-commit. The result will indicate a percentage of confidence about whether a ticket is a bug report or not. However, the researcher will always make the final decision. The automatic classification will enable researchers to focus only on problematic issues, which can be easily misclassified. 
 
-We also aim to investigate what will be the results if the data sources used by the tool to automatically extract tickets are used in isolation to to manually classify bugs or other possible bug classifying tools. This will help us validate our results and the tool to further improve.\\
+We also aim to investigate what will be the results if the data sources used by the tool to automatically extract tickets are used in isolation to to manually classify bugs or other possible bug classifying tools. This will help us validate our results and the tool to further improve.
 
 
 \begin{thebibliography}{4}
